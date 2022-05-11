@@ -27,8 +27,8 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <h1>New York</h1>
-        <h2>Thursday 14:40 | Clear</h2>
+        <h1 id="city"></h1>
+        <h2 id="date">Thursday 14:40 | <span id="description"></span></h2>
         <div class="row">
           <div class="col-6">
             <div class="d-flex weather-temperature">
@@ -38,16 +38,16 @@
                 class="float-left"
               />
               <div class="float-left">
-                <strong>12</strong>
+                <strong id="temperature"></strong>
                 <span class="units">°C | <a href="#">°F</a></span>
               </div>
             </div>
           </div>
           <div class="col-6">
             <ul>
-              <li>Precipitation: 0%</li>
-              <li>Humidity: 73%</li>
-              <li>Wind: 72km/h</li>
+              <li>Pressure: <span id="pressure"></span></li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span>km/h</li>
             </ul>
           </div>
         </div>
