@@ -27,6 +27,25 @@
   <body>
     <div class="container">
       <div class="weather-app">
+        <form id="search-engine" class="mb-5">
+          <div class="row">
+            <div class="col-5">
+              <input
+                type="search"
+                placeholder="Type a city..."
+                class="form-control"
+                id="search-city"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-1">
+              <input type="submit" value="🔍" class="btn btn-primary" />
+            </div>
+            <div class="col-1">
+              <input type="submit" value="📍" class="btn btn-primary" />
+            </div>
+          </div>
+        </form>
         <h1 id="city"></h1>
         <h2 id="date"></h2>
         <h3 id="description"></h3>
