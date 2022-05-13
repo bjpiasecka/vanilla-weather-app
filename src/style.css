@@ -11,8 +11,8 @@ h3 {
 
 h1 {
   margin: 10px auto;
-  font-size: 50px;
-  color: rgb(18, 75, 7);
+  font-size: 45px;
+  color: #064635;
 }
 
 h2 {
@@ -48,8 +48,9 @@ a {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
-  border: 1px solid rgb(18, 75, 7);
+  border: 1px solid #064635;
   border-radius: 5px;
+  /* background: linear-gradient(#fffdde, #e7fbbe, #ffcbcb, #d9d7f1); */
 }
 
 .weather-temperature img {
@@ -62,13 +63,22 @@ a {
   font-size: 64px;
   font-weight: 300;
   line-height: 1;
-  color: rgb(18, 75, 7);
+  color: #064635;
 }
 
 .weather-temperature .units {
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+
+.description-details span {
+  color: #064635;
+  font-weight: 700;
+}
+
+.description-details {
+  text-align: center;
 }
 
 .active {
