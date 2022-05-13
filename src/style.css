@@ -69,6 +69,11 @@ a {
   top: -34px;
 }
 
+.active {
+  color: black;
+  cursor: default;
+}
+
 .open-source {
   text-align: center;
 }
