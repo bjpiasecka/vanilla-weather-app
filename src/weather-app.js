@@ -25,6 +25,31 @@ if (minute < 10) {
 
 h2.innerHTML = `${day} ${hour}:${minute}`;
 
+function displayForecast() {
+  let weeklyForecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+              <div class="weather-forecast-day"><strong>${day}</strong></div>
+              <img
+                src="https://openweathermap.org/img/wn/04d@2x.png"
+                alt="Overcast clouds icon"
+                width="60"
+              />
+              <div class="weather-forecast-temperature">
+                <span class="temp-max"> <strong>18°</strong></span>
+                <span class="temp-min">12°</span>
+              </div>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  weeklyForecast.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -92,3 +117,5 @@ function changeToC(event) {
 
 let degreesC = document.querySelector("#celcius-degrees");
 degreesC.addEventListener("click", changeToC);
+
+displayForecast();
