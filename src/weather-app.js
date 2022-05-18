@@ -25,29 +25,52 @@ if (minute < 10) {
 
 h2.innerHTML = `${day} ${hour}:${minute}`;
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let weeklyForecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-              <div class="weather-forecast-day"><strong>${day}</strong></div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+              <div class="weather-forecast-day"><strong>${formatDay(
+                forecastDay.dt
+              )}</strong></div>
               <img
-                src="https://openweathermap.org/img/wn/04d@2x.png"
+                src="https://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
                 alt="Overcast clouds icon"
                 width="60"
               />
               <div class="weather-forecast-temperature">
-                <span class="temp-max"> <strong>18°</strong></span>
-                <span class="temp-min">12°</span>
+                <span class="temp-max"> <strong>${Math.round(
+                  forecastDay.temp.max
+                )}°</strong></span>
+                <span class="temp-min">${Math.round(
+                  forecastDay.temp.min
+                )}°</span>
               </div>
             </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   weeklyForecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "c8a6e0907a9f2de302f3030eaf713d4b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -71,6 +94,8 @@ function displayTemperature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 
   celsiusTemperature = Math.round(response.data.main.temp);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
