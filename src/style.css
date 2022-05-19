@@ -46,11 +46,22 @@ a {
 
 .weather-app {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 20px;
   border: 1px solid #064635;
-  border-radius: 5px;
-  background: linear-gradient(#fffdde, #e7fbbe);
+  border-radius: 10px;
+  background: linear-gradient(#fffdde, #83bd75);
+  box-shadow: 0 0 1em #06463573;
+}
+
+.heading {
+  box-shadow: 0 0 1em #06463573;
+  border-radius: 10px;
+  max-height: 150px;
+  margin: auto;
+  padding: 15px;
+  margin-bottom: 30px;
+  max-width: 250px;
 }
 
 .weather-temperature img {
@@ -107,4 +118,5 @@ a {
 
 .open-source {
   text-align: center;
+  margin-bottom: 5px;
 }
