@@ -96,6 +96,9 @@ function displayTemperature(response) {
   celsiusTemperature = Math.round(response.data.main.temp);
 
   getForecast(response.data.coord);
+
+  degreesC.classList.add("active");
+  degreesF.classList.remove("active");
 }
 
 function showLocation(position) {
